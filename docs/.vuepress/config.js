@@ -7,7 +7,7 @@ const config = {
         // 显示代码行号
         lineNumbers: true
     },
-    base: "/",
+    base: "/learning/",
     themeConfig: {
         lastUpdated: '上次更新',
         nav: require("./nav/index"),
