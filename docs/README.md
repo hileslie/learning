@@ -1,1 +1,7 @@
-# Hello VuePress 0520!
+---
+home: true
+heroImage: /images/potatochips.png
+actionText: 开始 →
+actionLink: /front-end/JavaScript/
+footer: MIT Licensed | Copyright © 2019-present ZhangChao
+---
