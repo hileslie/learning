@@ -25,7 +25,7 @@ Lint 是检验代码格式工具的一个统称，具体的工具有 Jslint 、 
 
 <center>
 
-![avatar](./img/with-Eslint.jpg)
+![avatar](./img/0.jpg)
 
 </center>
 
