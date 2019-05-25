@@ -32,8 +32,24 @@ const css = [
         children: [""]
     }
 ];
+const study = [
+    "eslint",
+];
+const algorithm = [
+    {
+        title: "算法",
+        collapsable: true,
+        children: [
+            "",
+            "sort",
+            "stack",
+        ]
+    }
+]
 module.exports = {
     javascript,
     html,
-    css
+    css,
+    study,
+    algorithm,
 };

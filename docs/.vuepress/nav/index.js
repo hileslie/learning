@@ -35,6 +35,15 @@ module.exports = [
             // }
         ]
     },
+    {
+        text: "算法", link: "/algorithm/"
+    },
+    {
+        text: "其他",
+        items: [
+            { text: "学习", link: "/other/study/eslint.html" },
+        ]
+    }
     // {
     //     text: "计算机基础",
     //     items: [
