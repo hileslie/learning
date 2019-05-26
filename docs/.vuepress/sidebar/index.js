@@ -34,6 +34,7 @@ const css = [
 ];
 const study = [
     "eslint",
+    "build-koa2",
 ];
 const algorithm = [
     {

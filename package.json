@@ -7,7 +7,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "author": "",
+  "author": "Leslie",
   "license": "ISC",
   "devDependencies": {
     "vuepress": "^1.0.0-alpha.48"
