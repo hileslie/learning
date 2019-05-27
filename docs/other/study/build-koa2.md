@@ -3,7 +3,7 @@ Koa是一个新的 web 框架，与Express相比，它更小、更富有表现�
 
 原生Koa除去其他依赖，核心文件非常小，直行`npm i koa`之后，从源文件包的lib文件夹下可以看到，只有4个文件，结构清晰，分别是：
 
-![avatar](/md-images/build-koa2/k0.png)![avatar](/md-images/build-koa2/k1.png)
+![avatar](/images/md-images/build-koa2/k0.png)![avatar](/images/md-images/build-koa2/k1.png)
 
 - application.js：应用入口
 - context.js：上下文
@@ -82,7 +82,7 @@ module.exports = Koa;
 ```
 启动服务`node apply/test.js`：
 
-![avatar](/md-images/build-koa2/k2.png)
+![avatar](/images/md-images/build-koa2/k2.png)
 
 然后，我们再来看koa，并没有使用原生的req、res。
 ```js
@@ -93,6 +93,8 @@ app.use((ctx, next) => {
 所以接下来，我们将是ctx和next的定义与封装。
 
 ## 实现ctx
+> ctx上挂载了原生的node方法和自己定义的方法 
+
 在apply文件夹下的test2.js文件中，实现简单的koa调用：
 ```js
 let Koa = require('../koa/application');
@@ -208,4 +210,4 @@ module.exports = response;
 
 启动服务`node apply/test2.js`，ctx目前已实现：
 
-![avatar](/md-images/build-koa2/k3.png)
+![avatar](/images/md-images/build-koa2/k3.png)
