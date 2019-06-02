@@ -211,3 +211,108 @@ module.exports = response;
 启动服务`node apply/test2.js`，ctx目前已实现：
 
 ![avatar](/learning/images/md-images/build-koa2/k3.png)
+
+## 实现next
+
+Koa 的最大特色，就是中间件（middleware）Koa 应用程序是一个包含一组中间件函数的对象，它是按照类似堆栈的方式组织和执行的。Koa中使用app.use()用来加载中间件，基本上Koa 所有的功能都是通过中间件实现的。
+
+每个中间件默认接受两个参数，第一个参数是 Context 对象，第二个参数是next函数。只要调用next函数，就可以把执行权转交给下一个中间件。这个next函数主要负责将控制权交给下一个中间件，如果当前中间件没有终结请求，并且next没有被调用，那么当前中间件的请求将被挂起，等到next()后的中间件执行完再返回继续执行。总结来说，就是：
+
+从第一个中间件开始执行，遇到next进入下一个中间件，一直执行到最后一个中间件，在逆序，执行上一个中间件next之后的代码，一直到第一个中间件执行结束才发出响应。
+
+并且koa支持异步调用。
+
+执行如下方法，我们会发现打印顺序为1->3->ok->5->6->4->2。
+```js
+let Koa = require('koa');
+let app = new Koa();
+let log = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log('ok');
+      resolve();
+    }, 1000);
+  })
+}
+app.use(async (ctx, next) => {
+    console.log(1);
+    await next();
+    console.log(2);
+});
+app.use(async (ctx, next) => {
+    console.log(3);
+    await log();
+    await next();
+    console.log(4);
+});
+app.use((ctx, next) => {
+    console.log(5);
+    next();
+    console.log(6);
+});
+app.listen(3000);
+```
+application.js文件做如下修改：
+```js
+let http = require('http');
+let context = require('./context');
+let request = require('./request');
+let response = require('./response');
+class Koa {
+  constructor() {
+    this.context = context;
+    this.request = request;
+    this.response = response;
+    this.middlewares = []; // 多个中间件
+  }
+  use(cb) {
+    this.middlewares.push(cb);
+  }
+  createContext(req, res) {
+    let ctx = Object.create(this.context);
+    ctx.request = Object.create(this.request);
+    ctx.req = ctx.request.req = req;
+    ctx.response = Object.create(this.response);
+    ctx.res = ctx.response.res = res;
+    return ctx;
+  }
+  // 组合
+  compose(ctx, middlewares) {
+    function dispatch(index) {
+      // 执行到最后一个中间件时，直接返回，执行完毕
+      if (index === middlewares.length) return Promise.resolve();
+      let middleware = middlewares[index];
+      // 递归创建嵌套的promise，每个promise必须等待内部promise执行完毕后，再执行
+      return Promise.resolve(middleware(ctx, () => dispatch(index + 1)));
+    }
+    return dispatch(0);
+  }
+  handleRequest(req, res) {
+    res.statusCode = 404; // 默认页面找不到
+    let ctx = this.createContext(req, res);
+    // 当回调函数执行后，ctx.body值就会发生变化
+    let composeMiddleware = this.compose(ctx, this.middlewares);
+    // 当此promise执行完成之后，再执行res.end()
+    composeMiddleware.then(() => {
+      let body = ctx.body;
+      if (typeof body === 'undefined') {
+        res.end('Not Found');
+      } else if (typeof body === 'string') {
+        res.end(body);
+      }
+    });
+  }
+  listen() {
+    let server = http.createServer(this.handleRequest.bind(this));
+    server.listen(...arguments);
+  }
+}
+
+module.exports = Koa;
+```
+
+启动服务`node apply/test3.js`：
+
+![avatar](/learning/images/md-images/build-koa2/k4.png)
+
+至此已经基本已经实现了一个简单koa2功能。
