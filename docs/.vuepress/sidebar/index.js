@@ -32,6 +32,16 @@ const css = [
         children: [""]
     }
 ];
+const frame = [
+    {
+        title: "Framework",
+        collapsable: false,
+        children: [
+            "",
+            "vue",
+        ]
+    }
+];
 const study = [
     "eslint",
     "build-koa2",
@@ -46,11 +56,28 @@ const algorithm = [
             "stack",
         ]
     }
-]
+];
+const engineering = [
+    {
+        title: "",
+        collapsable: false,
+        children: [""]
+    }
+];
+const po = [
+    {
+        title: "",
+        collapsable: false,
+        children: [""]
+    }
+];
 module.exports = {
     javascript,
     html,
     css,
     study,
     algorithm,
+    frame,
+    engineering,
+    po,
 };

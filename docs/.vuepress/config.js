@@ -1,4 +1,4 @@
-const { javascript, html, css, study, algorithm, } = require('./sidebar/index');
+const { javascript, html, css, study, algorithm, frame, engineering, po} = require('./sidebar/index');
 const config = {
     title: "Hello Leslie",
     description: "Just playing around",
@@ -15,6 +15,9 @@ const config = {
             "/front-end/JavaScript/": javascript,
             "/front-end/HTML/": html,
             "/front-end/CSS/": css,
+            "/front-end/frame/": frame,
+            "/front-end/engineering/": engineering,
+            "/front-end/performance-optimization/": po,
             "/other/study/": study,
             "/algorithm/": algorithm,
         }

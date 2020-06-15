@@ -10,22 +10,17 @@ module.exports = [
                     { text: "CSS", link: "/front-end/CSS/" }
                 ]
             },
-            // {
-            //     text: "框架和类库",
-            //     items: [{ text: "Vue", link: "/front-end/" }]
-            // },
-            // {
-            //     text: "前端工程",
-            //     items: [
-            //         { text: "项目构建", link: "/front-end/" },
-            //         { text: "Nginx", link: "/front-end/" },
-            //         { text: "开发提速", link: "/front-end/" },
-            //         { text: "持续集成", link: "/front-end/" },
-            //         { text: "版本控制", link: "/front-end/" },
-            //         { text: "性能优化", link: "/front-end/" },
-            //         { text: "安全", link: "/front-end/" }
-            //     ]
-            // },
+            {
+                text: "框架",
+                items: [{ text: "Vue", link: "/front-end/frame/" }]
+            },
+            {
+                text: "进阶",
+                items: [
+                    { text: "工程化", link: "/front-end/engineering/" },
+                    { text: "性能优化", link: "/front-end/performance-optimization/" },
+                ]
+            },
             // {
             //     text: "其他",
             //     items: [

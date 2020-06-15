@@ -10,6 +10,6 @@
   "author": "Leslie",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "^1.0.0-alpha.48"
+    "vuepress": "^1.5.2"
   }
 }
