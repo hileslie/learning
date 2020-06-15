@@ -1,6 +1,6 @@
 const { javascript, html, css, study, algorithm, frame, engineering, po} = require('./sidebar/index');
 const config = {
-    title: "Hello Leslie",
+    title: "Hi Leslie",
     description: "Just playing around",
     head: [["link", { rel: "icon", href: "/images/happy.png" }]],
     markdown: {
