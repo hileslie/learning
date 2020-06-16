@@ -71,16 +71,6 @@ const po = [
         children: [""]
     }
 ];
-const blog = [
-    {
-        title: "Blog",
-        collapsable: true,
-        children: [
-            "2016",
-            "2017",
-        ]
-    }
-]
 module.exports = {
     javascript,
     html,
@@ -90,5 +80,4 @@ module.exports = {
     frame,
     engineering,
     po,
-    blog,
 };

@@ -34,13 +34,6 @@ module.exports = [
         text: "算法", link: "/algorithm/"
     },
     {
-        text: "Blog",
-        items: [
-            { text: "2016", link: "/blog/2016/" },
-            { text: "2017", link: "/blog/2017/" },
-        ],
-    },
-    {
         text: "其他",
         items: [
             { text: "学习", link: "/other/study/eslint.html" },
