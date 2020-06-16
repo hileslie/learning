@@ -4,6 +4,7 @@ const javascript = [
         collapsable: true,
         children: [
             "",
+            "context-scope-closure",
             "var-type",
             "prototype",
             "scope-closures",
