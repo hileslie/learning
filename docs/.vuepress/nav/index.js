@@ -21,24 +21,33 @@ module.exports = [
                     { text: "性能优化", link: "/front-end/performance-optimization/" },
                 ]
             },
-            // {
-            //     text: "其他",
-            //     items: [
-            //         { text: "浏览器API", link: "/front-end/" },
-            //         { text: "浏览器原理", link: "/front-end/" }
-            //     ]
-            // }
         ]
     },
     {
-        text: "算法", link: "/algorithm/"
-    },
-    {
-        text: "其他",
+        text: "进阶",
         items: [
-            { text: "学习", link: "/other/study/eslint.html" },
+            { text: "设计模式", link: "/advanced/design-pattern/" },
+            { text: "数据结构", link: "/advanced/data-structure/" },
+            { text: "算法", link: "/advanced/algorithm/" },
         ]
-    }
+    },
+    {
+        text: "网络与安全",
+        items: [
+            { text: "网络", link: "/network-security/network/" },
+            { text: "安全", link: "/network-security/security/" },
+        ]
+    },
+    {
+        text: "Node",
+        link: "/node/"
+    },
+    {
+        text: "Blog",
+        items: [
+            { text: "学习", link: "/blog/study/build-koa2.html" },
+        ]
+    },
     // {
     //     text: "计算机基础",
     //     items: [

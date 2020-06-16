@@ -1,4 +1,18 @@
-const { javascript, html, css, study, algorithm, frame, engineering, po} = require('./sidebar/index');
+const {
+    javascript,
+    html,
+    css,
+    study,
+    algorithm,
+    frame,
+    engineering,
+    po,
+    dataStructure,
+    designPattern,
+    security,
+    network,
+    node,
+} = require('./sidebar/index');
 const config = {
     title: "Hi Leslie",
     description: "Just playing around",
@@ -18,8 +32,13 @@ const config = {
             "/front-end/frame/": frame,
             "/front-end/engineering/": engineering,
             "/front-end/performance-optimization/": po,
-            "/other/study/": study,
-            "/algorithm/": algorithm,
+            "/blog/study/": study,
+            "/advanced/algorithm/": algorithm,
+            "/advanced/data-structure/": dataStructure,
+            "/advanced/design-pattern/": designPattern,
+            "/network-security/network/": network,
+            "/network-security/security/": security,
+            "/node/": node,
         }
     }
 };
