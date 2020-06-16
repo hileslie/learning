@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>排序 | Hi Leslie</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/learning/images/happy.png">
+    <meta name="description" content="Just playing around">
+    <link rel="preload" href="/learning/assets/css/0.styles.2cea84e1.css" as="style"><link rel="preload" href="/learning/assets/js/app.b887272b.js" as="script"><link rel="preload" href="/learning/assets/js/2.c896d315.js" as="script"><link rel="preload" href="/learning/assets/js/8.afd48a9b.js" as="script"><link rel="prefetch" href="/learning/assets/js/10.b817cd98.js"><link rel="prefetch" href="/learning/assets/js/11.a84c75dc.js"><link rel="prefetch" href="/learning/assets/js/12.f72c44ef.js"><link rel="prefetch" href="/learning/assets/js/13.1a54334d.js"><link rel="prefetch" href="/learning/assets/js/14.646f8463.js"><link rel="prefetch" href="/learning/assets/js/15.b98dea1d.js"><link rel="prefetch" href="/learning/assets/js/16.927dc82a.js"><link rel="prefetch" href="/learning/assets/js/17.5f954aa2.js"><link rel="prefetch" href="/learning/assets/js/18.79609318.js"><link rel="prefetch" href="/learning/assets/js/19.df910a02.js"><link rel="prefetch" href="/learning/assets/js/20.82ec6882.js"><link rel="prefetch" href="/learning/assets/js/21.b4314814.js"><link rel="prefetch" href="/learning/assets/js/22.5f11dc49.js"><link rel="prefetch" href="/learning/assets/js/23.87628f11.js"><link rel="prefetch" href="/learning/assets/js/24.8a2952a9.js"><link rel="prefetch" href="/learning/assets/js/25.9818dbbd.js"><link rel="prefetch" href="/learning/assets/js/26.544ffb93.js"><link rel="prefetch" href="/learning/assets/js/27.9a665b42.js"><link rel="prefetch" href="/learning/assets/js/28.97205a44.js"><link rel="prefetch" href="/learning/assets/js/3.9722c955.js"><link rel="prefetch" href="/learning/assets/js/4.32665014.js"><link rel="prefetch" href="/learning/assets/js/5.46313d91.js"><link rel="prefetch" href="/learning/assets/js/6.288ab0fb.js"><link rel="prefetch" href="/learning/assets/js/7.3b5fb2d4.js"><link rel="prefetch" href="/learning/assets/js/9.7b8faf3c.js">
+    <link rel="stylesheet" href="/learning/assets/css/0.styles.2cea84e1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/learning/" class="home-link router-link-active"><!----> <span class="site-name">Hi Leslie</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/JavaScript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/frame/" class="nav-link">
+  Vue
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/engineering/" class="nav-link">
+  工程化
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/performance-optimization/" class="nav-link">
+  性能优化
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/advanced/design-pattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/learning/advanced/data-structure/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/learning/advanced/algorithm/" class="nav-link router-link-active">
+  算法
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络与安全" class="dropdown-title"><span class="title">网络与安全</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/network-security/network/" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/learning/network-security/security/" class="nav-link">
+  安全
+</a></li></ul></div></div><div class="nav-item"><a href="/learning/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/blog/study/build-koa2.html" class="nav-link">
+  学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/JavaScript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/frame/" class="nav-link">
+  Vue
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/engineering/" class="nav-link">
+  工程化
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/performance-optimization/" class="nav-link">
+  性能优化
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/advanced/design-pattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/learning/advanced/data-structure/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/learning/advanced/algorithm/" class="nav-link router-link-active">
+  算法
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络与安全" class="dropdown-title"><span class="title">网络与安全</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/network-security/network/" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/learning/network-security/security/" class="nav-link">
+  安全
+</a></li></ul></div></div><div class="nav-item"><a href="/learning/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/blog/study/build-koa2.html" class="nav-link">
+  学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>算法</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learning/advanced/algorithm/" aria-current="page" class="sidebar-link">算法</a></li><li><a href="/learning/advanced/algorithm/sort.html" aria-current="page" class="active sidebar-link">排序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learning/advanced/algorithm/sort.html#合并区间" class="sidebar-link">合并区间</a></li></ul></li><li><a href="/learning/advanced/algorithm/stack.html" class="sidebar-link">栈</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="排序"><a href="#排序" aria-hidden="true" class="header-anchor">#</a> 排序</h1> <h2 id="合并区间"><a href="#合并区间" aria-hidden="true" class="header-anchor">#</a> 合并区间</h2> <h3 id="题目"><a href="#题目" aria-hidden="true" class="header-anchor">#</a> 题目</h3> <p>给出一个区间的集合，请合并所有重叠的区间。</p> <p>示例1：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>输入<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+输出<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+解释<span class="token punctuation">:</span> 区间 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span> 和 <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> 重叠<span class="token punctuation">,</span> 将它们合并为 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">.</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>示例2：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>输入<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+输出<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+解释<span class="token punctuation">:</span> 区间 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span> 和 <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> 可被视为重叠区间。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="题解"><a href="#题解" aria-hidden="true" class="header-anchor">#</a> 题解</h3></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">6/16/2020, 5:32:41 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/learning/advanced/algorithm/" class="prev router-link-active">
+        算法
+      </a></span> <span class="next"><a href="/learning/advanced/algorithm/stack.html">
+        栈
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/learning/assets/js/app.b887272b.js" defer></script><script src="/learning/assets/js/2.c896d315.js" defer></script><script src="/learning/assets/js/8.afd48a9b.js" defer></script>
+  </body>
+</html>
