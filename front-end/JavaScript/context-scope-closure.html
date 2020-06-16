@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>上下文与作用域链与闭包 | Hi Leslie</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/learning/images/happy.png">
+    <meta name="description" content="Just playing around">
+    <link rel="preload" href="/learning/assets/css/0.styles.2cea84e1.css" as="style"><link rel="preload" href="/learning/assets/js/app.a1c6eb59.js" as="script"><link rel="preload" href="/learning/assets/js/2.c896d315.js" as="script"><link rel="preload" href="/learning/assets/js/17.c10600ce.js" as="script"><link rel="prefetch" href="/learning/assets/js/10.b817cd98.js"><link rel="prefetch" href="/learning/assets/js/11.a84c75dc.js"><link rel="prefetch" href="/learning/assets/js/12.f72c44ef.js"><link rel="prefetch" href="/learning/assets/js/13.c28a256a.js"><link rel="prefetch" href="/learning/assets/js/14.646f8463.js"><link rel="prefetch" href="/learning/assets/js/15.b98dea1d.js"><link rel="prefetch" href="/learning/assets/js/16.536ec41c.js"><link rel="prefetch" href="/learning/assets/js/18.bc78b108.js"><link rel="prefetch" href="/learning/assets/js/19.8d9472b6.js"><link rel="prefetch" href="/learning/assets/js/20.4b21bee5.js"><link rel="prefetch" href="/learning/assets/js/21.48f1bd47.js"><link rel="prefetch" href="/learning/assets/js/22.34b087ad.js"><link rel="prefetch" href="/learning/assets/js/23.22128b06.js"><link rel="prefetch" href="/learning/assets/js/24.4df7155b.js"><link rel="prefetch" href="/learning/assets/js/25.ce73c1b3.js"><link rel="prefetch" href="/learning/assets/js/26.39db6209.js"><link rel="prefetch" href="/learning/assets/js/27.91e7f3a7.js"><link rel="prefetch" href="/learning/assets/js/28.2092bca6.js"><link rel="prefetch" href="/learning/assets/js/29.c0ba35a6.js"><link rel="prefetch" href="/learning/assets/js/3.9722c955.js"><link rel="prefetch" href="/learning/assets/js/4.32665014.js"><link rel="prefetch" href="/learning/assets/js/5.46313d91.js"><link rel="prefetch" href="/learning/assets/js/6.13306240.js"><link rel="prefetch" href="/learning/assets/js/7.44444348.js"><link rel="prefetch" href="/learning/assets/js/8.afd48a9b.js"><link rel="prefetch" href="/learning/assets/js/9.3627e2b8.js">
+    <link rel="stylesheet" href="/learning/assets/css/0.styles.2cea84e1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/learning/" class="home-link router-link-active"><!----> <span class="site-name">Hi Leslie</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/JavaScript/" class="nav-link router-link-active">
+  JavaScript
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/frame/" class="nav-link">
+  Vue
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/engineering/" class="nav-link">
+  工程化
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/performance-optimization/" class="nav-link">
+  性能优化
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/advanced/design-pattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/learning/advanced/data-structure/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/learning/advanced/algorithm/" class="nav-link">
+  算法
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络与安全" class="dropdown-title"><span class="title">网络与安全</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/network-security/network/" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/learning/network-security/security/" class="nav-link">
+  安全
+</a></li></ul></div></div><div class="nav-item"><a href="/learning/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/blog/study/build-koa2.html" class="nav-link">
+  学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/JavaScript/" class="nav-link router-link-active">
+  JavaScript
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/CSS/" class="nav-link">
+  CSS
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/frame/" class="nav-link">
+  Vue
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/learning/front-end/engineering/" class="nav-link">
+  工程化
+</a></li><li class="dropdown-subitem"><a href="/learning/front-end/performance-optimization/" class="nav-link">
+  性能优化
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/advanced/design-pattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/learning/advanced/data-structure/" class="nav-link">
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/learning/advanced/algorithm/" class="nav-link">
+  算法
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络与安全" class="dropdown-title"><span class="title">网络与安全</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/network-security/network/" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/learning/network-security/security/" class="nav-link">
+  安全
+</a></li></ul></div></div><div class="nav-item"><a href="/learning/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Blog" class="dropdown-title"><span class="title">Blog</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learning/blog/study/build-koa2.html" class="nav-link">
+  学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JavaScript</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learning/front-end/JavaScript/" aria-current="page" class="sidebar-link">JavaScript梗概</a></li><li><a href="/learning/front-end/JavaScript/context-scope-closure.html" aria-current="page" class="active sidebar-link">上下文与作用域链与闭包</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learning/front-end/JavaScript/context-scope-closure.html#上下文" class="sidebar-link">上下文</a></li></ul></li><li><a href="/learning/front-end/JavaScript/var-type.html" class="sidebar-link">变量和类型</a></li><li><a href="/learning/front-end/JavaScript/prototype.html" class="sidebar-link">原型和原型链</a></li><li><a href="/learning/front-end/JavaScript/scope-closures.html" class="sidebar-link">作用域和闭包</a></li><li><a href="/learning/front-end/JavaScript/execution.html" class="sidebar-link">执行机制</a></li><li><a href="/learning/front-end/JavaScript/grammar-api.html" class="sidebar-link">语法和API</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="上下文与作用域链与闭包"><a href="#上下文与作用域链与闭包" aria-hidden="true" class="header-anchor">#</a> 上下文与作用域链与闭包</h1> <h2 id="上下文"><a href="#上下文" aria-hidden="true" class="header-anchor">#</a> 上下文</h2> <blockquote><p>JavaScript程序内部是如何执行的</p></blockquote> <h3 id="什么是执行上下文"><a href="#什么是执行上下文" aria-hidden="true" class="header-anchor">#</a> 什么是执行上下文</h3> <p>执行上下文就是当前 JavaScript 代码被解析和执行时所在环境的抽象概念， JavaScript 中运行任何的代码都是在执行上下文中运行。</p> <h3 id="执行上下文的类型"><a href="#执行上下文的类型" aria-hidden="true" class="header-anchor">#</a> 执行上下文的类型</h3> <p>执行上下文总共有三种类型：</p> <ul><li><p>全局上下文：默认的、最基础的执行上下文。不在任何函数中的代码都位于全局执行上下文中。</p> <blockquote><p>1、创建全局对象（浏览器中是window）</p> <p>2、将this指针指向全局对象</p></blockquote></li> <li><p>函数执行的上下文：每次调用函数时，都会为该函数创建一个新的执行上下文。每个函数都拥有自己的执行上下文，但是只有在函数被调用的时候才会被创建。一个程序中可以存在任意数量的函数执行上下文。每当一个新的执行上下文被创建，它都会按照特定的顺序执行一系列步骤。</p></li> <li><p>Eval函数执行上下文：运行在 eval 函数中的代码也获得了自己的执行上下文。</p></li></ul> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// 全局上下文 等同于window.say</span>
+<span class="token keyword">var</span> say <span class="token operator">=</span> <span class="token string">'hi leslie'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 全局上下文</span>
+<span class="token keyword">function</span> <span class="token function">saySomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// 函数执行上下文</span>
+  <span class="token keyword">var</span> say <span class="token operator">=</span> <span class="token string">'hi leslie'</span><span class="token punctuation">;</span>
+  <span class="token comment">// 函数执行上下文</span>
+  <span class="token keyword">function</span> <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> say<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">saySomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h3 id="执行上下文的生命周期"><a href="#执行上下文的生命周期" aria-hidden="true" class="header-anchor">#</a> 执行上下文的生命周期</h3> <p>执行上下文的生命周期包括三个阶段：<strong>创建阶段 → 执行阶段 → 回收阶段</strong>。</p> <h4 id="创建阶段"><a href="#创建阶段" aria-hidden="true" class="header-anchor">#</a> 创建阶段</h4> <p>当函数被调用，但未执行任何其内部代码之前，会做以下三件事：</p> <ul><li><p>创建变量对象：首先初始化函数的参数 arguments，提升函数声明和变量声明。</p></li> <li><p>创建作用域链（Scope Chain）：在执行期上下文的创建阶段，作用域链是在变量对象之后创建的。作用域链本身包含变量对象。作用域链用于解析变量。当被要求解析变量时，JavaScript 始终从代码嵌套的最内层开始，如果最内层没有找到变量，就会跳转到上一层父作用域中查找，直到找到该变量。</p></li> <li><p>确定 this 指向。</p> <blockquote><p>在全局执行上下文中，<code>this</code> 的值指向全局对象，在浏览器中，<code>this</code> 的值指向 window 对象。</p> <p>在函数执行上下文中，<code>this</code> 的值取决于函数的调用方式。如果它被一个对象引用调用，那么 <code>this</code> 的值被设置为该对象，否则 <code>this</code> 的值被设置为全局对象或 <code>undefined</code>（严格模式下）。</p> <p>箭头函数 this 指向:箭头函数没有自己的 this，看其外层的是否有函数，如果有，外层函数的 this 就是内部箭头函数的 this，如果没有，则 this 是 window。</p></blockquote></li></ul> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'leslie'</span><span class="token punctuation">,</span>
+  birthDay<span class="token punctuation">:</span> <span class="token string">'1956'</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">say</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hi '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// this 指向 person，因为 say 是被 person 对象引用调用的</span>
+person<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// hi leslie</span>
+
+<span class="token comment">// this 指向全局 window 对象，因为没有给出任何对象引用</span>
+<span class="token keyword">let</span> globalSay <span class="token operator">=</span> person<span class="token punctuation">.</span>say<span class="token punctuation">;</span>
+<span class="token function">globalSay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// hi</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>在一段 JS 脚本执行之前，要先解析代码（所以说 JS 是解释执行的脚本语言），解析的时候会先创建一个全局执行上下文环境，先把代码中即将执行的变量、函数声明都拿出来。变量先暂时赋值为 undefined，函数则先声明好可使用。这一步做完了，然后再开始正式执行程序。</p> <p>一个函数在执行之前，也会创建一个函数执行上下文环境，跟全局上下文差不多，不过 函数执行上下文中会多出 this arguments 和函数的参数。</p> <h4 id="执行阶段"><a href="#执行阶段" aria-hidden="true" class="header-anchor">#</a> 执行阶段</h4> <p>执行变量赋值、代码执行</p> <h4 id="回收阶段"><a href="#回收阶段" aria-hidden="true" class="header-anchor">#</a> 回收阶段</h4> <p>执行上下文出栈等待虚拟机回收执行上下文</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">6/16/2020, 12:35:24 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/learning/front-end/JavaScript/" class="prev router-link-active">
+        JavaScript梗概
+      </a></span> <span class="next"><a href="/learning/front-end/JavaScript/var-type.html">
+        变量和类型
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/learning/assets/js/app.a1c6eb59.js" defer></script><script src="/learning/assets/js/2.c896d315.js" defer></script><script src="/learning/assets/js/17.c10600ce.js" defer></script>
+  </body>
+</html>
