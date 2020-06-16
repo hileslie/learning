@@ -6,4 +6,4 @@ actionLink: /front-end/JavaScript/
 footer: MIT Licensed | Copyright © 2019-present ZhangChao
 ---
 
-![avatar](/images/topology.png)
+![avatar](/learning/images/topology.png)
