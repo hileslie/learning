@@ -7,7 +7,6 @@ const javascript = [
             "context-scope-closure",
             "var-type",
             "prototype",
-            "scope-closures",
             "execution",
             "grammar-api"
         ]
