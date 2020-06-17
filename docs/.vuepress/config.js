@@ -15,7 +15,7 @@ const {
 } = require('./sidebar/index');
 const config = {
     title: "Hi Leslie",
-    description: "Just playing around",
+    description: "明确 值得 可实现",
     head: [["link", { rel: "icon", href: "/images/happy.png" }]],
     markdown: {
         // 显示代码行号
