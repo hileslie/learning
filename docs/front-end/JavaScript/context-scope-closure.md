@@ -308,3 +308,70 @@ function grandfather() {
 
 **注：作用域(scope) 是指变量的可访问性，上下文(context)是用来指定代码某些特定部分中 `this`的值，是指 `this` 在同一作用域内的值。**
 
+
+
+## 闭包(closure)
+
+### 什么是闭包
+
+函数和对其周围状态（**lexical environment，词法环境**）的引用捆绑在一起构成**闭包**（**closure**）。也就是说，闭包可以让你从内部函数访问外部函数作用域。在 JavaScript 中，每当函数被创建，就会在函数生成时生成闭包。
+
+
+
+### 词法作用域
+
+```javascript
+function init() {
+    var name = "leslie"; // name 是一个被 init 创建的局部变量
+    function displayName() { // displayName() 是内部函数，一个闭包
+        alert(name); // 使用了父函数中声明的变量
+    }
+    displayName();
+}
+init();
+```
+
+`init()` 创建了一个局部变量 `name` 和一个名为 `displayName()` 的函数。`displayName()` 是定义在 `init()` 里的内部函数，并且仅在 `init()` 函数体内可用。请注意，`displayName()` 没有自己的局部变量。然而，因为它可以访问到外部函数的变量，所以 `displayName()` 可以使用父函数 `init()` 中声明的变量 `name` 。
+
+
+
+**闭包就是能够读取其他函数内部变量的函数。**
+
+
+
+### 闭包的作用
+
+- 可以读取函数内部的变量
+
+```javascript
+function init() {
+    var name = "leslie"; // name 是一个被 init 创建的局部变量
+    function displayName() { // displayName() 是内部函数，一个闭包
+        alert(name); // 使用了父函数中声明的变量
+    }
+    displayName();
+}
+init();
+```
+
+- 让这些变量的值始终保持在内存中
+
+```javascript
+function f1(){
+  var n =999;
+  nAdd = function () {
+    n += 1
+  }
+  function f2() {
+    console.log(n)
+  }
+　return f2;
+}
+var result=f1();
+result(); // 999
+nAdd(); // nAdd因为没有使用var定义，所以自动声明为全局函数，直接可以执行调用
+result(); // 1000
+```
+
+
+
