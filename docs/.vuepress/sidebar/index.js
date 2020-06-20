@@ -5,6 +5,7 @@ const javascript = [
         children: [
             "",
             "context-scope-closure",
+            "this",
             "var-type",
             "prototype",
             "execution",
