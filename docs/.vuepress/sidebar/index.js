@@ -6,8 +6,8 @@ const javascript = [
             "",
             "context-scope-closure",
             "this",
+            "prototype-inherit",
             "var-type",
-            "prototype",
             "execution",
             "grammar-api"
         ]
