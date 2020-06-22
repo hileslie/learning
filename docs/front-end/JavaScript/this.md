@@ -8,6 +8,39 @@
 
 **在函数中this到底取何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了**。因为this的取值是执行上下文环境的一部分，每次调用函数，都会产生一个新的执行上下文环境。
 
+注：**箭头函数**的特殊性。箭头函数中的this指向最外层的this（window）保持一致，无论层级，并且call方法无法修改this的指向。
+
+```javascript
+var obj = {
+		a: function() {
+      console.log(this) 
+    }
+}
+obj.a() // {a: ƒ}
+
+var obj = {
+		a: () => {
+      console.log(this) 
+    }
+}
+obj.a() // Window {parent: Window, opener: null, top: Window, length: 0, frames: Window, …}
+
+var obj = {
+    a: function() {
+      console.log(this)
+    },
+    b: {
+    	c: () => {
+        console.log(this)
+      }
+	}
+}
+obj.a()  // {b: {…}, a: ƒ}
+obj.b.c() // Window {parent: Window, opener: null, top: Window, length: 0, frames: Window, …}
+```
+
+
+
 ### this取值的4种情况
 
 #### 构造函数
