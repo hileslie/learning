@@ -62,7 +62,7 @@ p1.say() // leslie: 18
 p2.say() // bob: 28
 ```
 
-并且重写p2的say方法，不会对p1造成影响：
+并且重写p2的say方法，不会对p1造成影响，因为它重写say方法的操作实际上是为自己添加了一个新的方法使原型中的say方法被覆盖了，而并非直接修改了原型中的方法：
 
 ```javascript
 function Person(name, age) {
