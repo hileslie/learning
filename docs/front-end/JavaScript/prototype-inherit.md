@@ -4,11 +4,11 @@
 
 ## JavaScript的原型
 
-每个函数都有一个特殊的属性叫作`原型（prototype）`。
+> 每个实例对象（ object ）都有一个私有属性（称之为 __proto__ ）指向它的构造函数的原型对象（prototype ）。该原型对象也有一个自己的原型对象( __proto__ ) ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节
 
 ### 构造函数与原型
 
-与大部分面向对象语言不同，JavaScript中并没有引入类（class）的概念，但JavaScript仍然大量地使用了对象，为了保证对象之间的联系，JavaScript引入了原型与原型链的概念。
+avaScript 中除了基础类型外的数据类型，都是对象（引用类型），JavaScript中并没有引入类（class）的概念，但JavaScript仍然大量地使用了对象，为了保证对象之间的联系，JavaScript引入了原型与原型链的概念。
 
 ```javascript
 function Person(name, age) {
@@ -83,11 +83,48 @@ p2.say() // bob: 28：update
 
 
 
-
-
 ## 原型链
 
+JavaScript中所有的对象都是由它的原型对象继承而来。而原型对象自身也是一个对象，它也有自己的原型对象，这样层层上溯，就形成了一个类似链表的结构，这就是**原型链（prototype chain）**。
 
+所有原型链的终点都是Object函数的prototype属性，因为在JavaScript中的对象都默认由Object()构造。Object.prototype指向的原型对象同样拥有原型，不过它的原型是null，而null则没有原型。
+
+原型链和原型对象是js的核心，js以原型链的形式，保证函数或对象中的方法、属性可以让向下传递，按照面向对象的说法，这就是继承。
+
+### prototype和contructor
+
+**prototype指向函数的原型对象，这是一个显式原型属性，只有函数才拥有该属性**。**contructor**指向原型对象的构造函数。
+
+```javascript
+// 可以思考一下的打印结果，它们分别指向谁
+function Foo() {}
+
+console.log(Foo.prototype)
+console.log(Foo.prototype.constructor)
+console.log(Foo.__proto__)
+console.log(Foo.prototype.__proto__)
+```
+
+![avatar](./img/prototype2.png)
+
+### proto
+
+每个对象都有`_proto_`，它是隐式原型属性，指向了创建该对象的构造函数原型。由于js中是没有类的概念，而为了实现继承，通过 `_proto_` 将对象和原型联系起来组成原型链，就可以让对象访问到不属于自己的属性。
+
+Foo、Function和Object都是函数，它们的`_proto_`都指向`Function.prototype`。
+
+### 原型对象之间的关系
+
+它们的`_proto_`都指向了`Object.prototype`。js原型链最终指向的是Object原型对象
+
+### _proto_原型链图
+
+### 总结
+
+- Function 和 Object 是两个函数。
+- proto 将对象和原型连接起来组成了原型链。
+- 所有的函数的 **proto** 都指向Function原型对象。
+- **js的原型链最终指向的是Object原型对象(Object.prototype)**（在这里我将null排除在外了）。
 
 ## 如何使用原型链实现继承
 
