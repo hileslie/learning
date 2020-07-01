@@ -126,5 +126,100 @@ Foo、Function和Object都是函数，它们的`_proto_`都指向`Function.proto
 - 所有的函数的 **proto** 都指向Function原型对象。
 - **js的原型链最终指向的是Object原型对象(Object.prototype)**（在这里我将null排除在外了）。
 
+
+
 ## 如何使用原型链实现继承
+
+### 原型链
+
+```javascript
+function Person() {
+    this.name = 'leslie';
+}
+function Me() {
+    
+}
+Me.prototype = new Person();
+const instance = new Me();
+console.log(instance.name); // leslie
+```
+
+因为此模式会共享属性和方法，所以当一个实例修改属性和方法时会影响其他实例，而且子类型无法向超类型传递参数。综上，不推荐使用此模式。
+
+### 构造函数
+
+```javascript
+function Person(name) {
+    this.name = name;
+}
+function Me() {
+    Person.call(this, 'leslie')
+}
+const instance = new Me();
+console.log(instance.name); // leslie
+```
+
+此模式的优缺点：
+
+1. 每一个child的实例都有name属性的副本，避免了属性修改的传染性。
+2. 子类型可以向超类型传递参数
+3. 函数无法复用
+
+### 组合继承
+
+```javascript
+function Person(name) {
+    this.name = name;
+}
+Person.prototype.sayName = () => {
+    console.log(this.name);
+}
+function Me(name) {
+    Person.call(this, name)
+}
+Me.prototype = new Person();
+Me.prototype.constructor = Me;
+```
+
+### 原型式继承
+
+```javascript
+const person = {
+    name: 'leslie',
+    age: 18,
+}
+function Me(original){
+    function F() {}
+    F.prototype = original
+    return new F()
+}
+const anotherPerson = Object.create(person)
+```
+
+### 寄生式继承
+
+```javascript
+const person = {
+    name: 'leslie',
+    age: 18,
+}
+function createAnother(original){
+    const clone = Object.create(original);
+    clone.say = () => {
+        console.log('hello');
+    }
+}
+var anotherPerson = createAnother(person)
+anotherPerson.say();  //hello
+```
+
+### 寄生组合式继承
+
+```javascript
+function inheritPrototype(child, parent) {
+    const portotype = Object.create(parent)
+    prototype.constructor = child 
+    child.prototype = prototype
+}
+```
 
